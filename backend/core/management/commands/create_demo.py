@@ -3,6 +3,7 @@ from pathlib import Path
 from django.core.management.base import BaseCommand
 from django.core.files import File
 from django.conf import settings
+from django.contrib.auth.models import User
 from core.models import (
     Car, Specialization, Position, Skill,
     Project, ProjectPhoto, Installer, Certificate, BrigadePage,
@@ -27,6 +28,17 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.stdout.write('Creating demo data...')
+        
+        # ---------- СОЗДАНИЕ АДМИНА ----------
+        if not User.objects.filter(username='admin').exists():
+            User.objects.create_superuser('admin', 'admin@mirkli.com', 'admin123')
+            self.stdout.write(self.style.SUCCESS('  OK: Admin user created'))
+        else:
+            # Обновляем пароль если пользователь уже есть
+            admin = User.objects.get(username='admin')
+            admin.set_password('admin123')
+            admin.save()
+            self.stdout.write(self.style.SUCCESS('  OK: Admin password updated'))
 
         # ---------- АВТОМОБИЛЬ ----------
         car, created = Car.objects.get_or_create(
