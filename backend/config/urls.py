@@ -9,5 +9,5 @@ urlpatterns = [
     path('<slug:slug>/', brigade_page, name='brigade_page'),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Всегда добавляем медиа-файлы (WhiteNoise обработает их в production)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

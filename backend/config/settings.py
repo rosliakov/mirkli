@@ -77,7 +77,15 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Используем кастомный WhiteNoise для медиа-файлов
+if not DEBUG:
+    WHITENOISE_HANDLER = 'config.whitenoise_media.WhiteNoiseStaticFilesHandler'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Добавляем медиа-файлы в whitenoise
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
