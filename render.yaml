@@ -4,7 +4,7 @@ services:
     runtime: python3
     rootDir: backend
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
-    startCommand: python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+    startCommand: python manage.py migrate && python manage.py collectstatic --noinput && python manage.py createsuperuser --noinput && python manage.py create_demo && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
     plan: free
     envVars:
       - key: DEBUG
@@ -13,5 +13,11 @@ services:
         generateValue: true
       - key: ALLOWED_HOSTS
         value: "mirkli.onrender.com"
+      - key: DJANGO_SUPERUSER_USERNAME
+        value: "admin"
+      - key: DJANGO_SUPERUSER_EMAIL
+        value: "admin@mirkli.com"
+      - key: DJANGO_SUPERUSER_PASSWORD
+        value: "admin123"
       - key: PYTHON_VERSION
         value: "3.12.0"
