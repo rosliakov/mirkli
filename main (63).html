@@ -1,0 +1,961 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка бригады - Миркли</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet">
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      *
+      {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .hide-scroll::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      .hide-scroll
+      {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .gradient-overlay
+      {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+      }
+
+      .card-shadow
+      {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
+
+      .rating-star
+      {
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .rating-star:hover
+      {
+        transform: scale(1.15);
+      }
+
+      .rating-star.active
+      {
+        color: #FBBF24;
+        animation: starPulse 0.3s ease;
+      }
+
+      @keyframes starPulse
+      {
+
+        0%,
+        100%
+        {
+          transform: scale(1);
+        }
+
+        50%
+        {
+          transform: scale(1.2);
+        }
+      }
+
+      .technician-card
+      {
+        transition: all 0.3s ease;
+      }
+
+      .technician-card:hover
+      {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      }
+
+      .badge-shimmer
+      {
+        background: linear-gradient(90deg, rgba(46, 168, 28, 0.1) 0%, rgba(46, 168, 28, 0.2) 50%, rgba(46, 168, 28, 0.1) 100%);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            fontFamily:
+            {
+              'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont',
+                'Segoe UI', 'Roboto', 'sans-serif'
+              ]
+            },
+            colors:
+            {
+              mircli:
+              {
+                blue: '#2e3b7c',
+                green: '#2ea81c',
+                'blue-dark': '#1a2355'
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка бригады - Миркли</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка бригады - Миркли</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка бригады - Миркли</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet">
+    <div id="main-container"
+      class="w-full max-w-4xl mx-auto bg-white pb-32 shadow-2xl min-h-screen">
+      <!-- Mircli Header Info -->
+      <div id="mircli-header"
+        class="bg-gradient-to-r from-white to-blue-50/30 px-5 pt-6 pb-4 border-b border-gray-200">
+        <div class="flex justify-between items-center mb-4">
+          <div class="flex items-center gap-3">
+            <div class="h-12 w-auto"><img
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/GftAU25fvIOrVuLaW0fSqgCqNQ02%2Fb5621015-ae60-4980-be20-c1e450a9f85b.png"
+                alt="Mircli Logo" class="h-full object-contain"></div><span
+              class="text-[8px] text-gray-500 font-semibold uppercase tracking-[0.1em] leading-[1.4]">Климатическая<br>компания</span>
+          </div>
+          <div class="text-right"><a href="tel:88007752219"
+              class="block text-lg font-bold text-gray-900 tracking-tight leading-none hover:text-mircli-blue transition-colors">8
+              800 775-22-19</a></div>
+        </div>
+        <div
+          class="flex justify-between items-center text-xs text-gray-600 border-t border-gray-200 pt-3">
+          <a href="mailto:info@mircli.ru"
+            class="hover:text-mircli-blue transition-colors font-medium flex items-center gap-1.5"><i
+              class="fa-regular fa-envelope text-sm"></i><span>info@mircli.ru</span></a><button
+            class="text-mircli-blue font-bold hover:underline">Обратный
+            звонок</button></div>
+      </div><!-- Brigade Header -->
+      <div id="header"
+        class="bg-white px-5 py-5 border-b border-gray-200 sticky top-0 z-10 backdrop-blur-lg bg-white/95">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-mircli-blue to-mircli-blue-dark rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/20">
+              <i class="fa-solid fa-tools text-white text-lg"></i></div>
+            <div>
+              <h1
+                class="text-xl font-bold text-gray-900 leading-none tracking-tight mb-2">
+                Бригада #247</h1>
+              <div class="flex items-center gap-2">
+                <div class="flex text-yellow-400 text-sm gap-0.5"><i
+                    class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i></div><span
+                  class="text-base font-bold text-gray-800">4.8</span><span
+                  class="text-xs text-gray-500 font-medium">(127 отзывов)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- Vehicle Card -->
+      <div id="vehicle-card"
+        class="mx-5 mt-6 bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+        <div class="relative">
+          <div
+            class="h-56 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
+            <img
+              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a2c4bc2851-d97fdea6b6e51bf52612.png"
+              alt="dark blue Ford Transit van"
+              class="w-full h-full object-cover">
+            <div class="absolute inset-0 gradient-overlay"></div>
+          </div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <h3
+              class="font-bold text-xl leading-tight tracking-tight drop-shadow-lg">
+              Ford Transit</h3>
+            <p class="text-sm opacity-95 font-medium mt-1 drop-shadow">Оснащен
+              всем необходимым</p>
+          </div>
+          <div
+            class="absolute top-4 right-4 bg-white/95 backdrop-blur-md rounded-xl px-3 py-2 shadow-lg border border-gray-200 flex items-center gap-2">
+            <img
+              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/GftAU25fvIOrVuLaW0fSqgCqNQ02%2Fd88cf649-a168-4c05-a050-0c99c77e4aa3.png"
+              alt="Russian flag" class="w-4 h-3 object-cover rounded-sm"><span
+              class="text-sm font-bold text-gray-900">А123БВ77</span></div>
+        </div>
+      </div><!-- Technicians Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mx-5 mt-6 mb-6">
+        <!-- Main Technician -->
+        <div id="main-technician"
+          class="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden technician-card">
+          <button
+            class="w-full p-5 text-left hover:bg-gray-50/50 transition-colors md:pointer-events-none md:hover:bg-white">
+            <div class="flex items-start gap-4">
+              <div class="relative">
+                <div
+                  class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center overflow-hidden border-2 border-blue-200 shadow-md">
+                  <i class="fa-solid fa-user text-blue-400 text-3xl"></i></div>
+                <div
+                  class="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-mircli-green to-green-600 rounded-full border-3 border-white flex items-center justify-center shadow-lg">
+                  <i class="fa-solid fa-check text-white text-xs"></i></div>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3
+                      class="font-bold text-base text-gray-900 mb-1.5 leading-tight">
+                      Ломов Александр Петрович</h3>
+                    <p
+                      class="text-xs text-mircli-blue font-bold uppercase tracking-wider mb-3 leading-none">
+                      Старший монтажник</p>
+                    <div class="flex items-center gap-2 flex-wrap"><span
+                        class="text-xs bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 px-3 py-1.5 rounded-lg border border-gray-200 font-semibold shadow-sm">5
+                        лет опыта</span><span
+                        class="text-xs bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-1.5 rounded-lg border border-blue-200 font-bold shadow-sm">Джуниор</span>
+                    </div>
+                  </div><i id="main-chevron"
+                    class="fa-solid fa-chevron-up text-gray-400 text-base transition-transform duration-300 md:hidden mt-1"></i>
+                </div>
+              </div>
+            </div>
+          </button>
+          <div id="main-expanded" class="px-5 pb-5 space-y-5">
+            <!-- Compact Experience Section -->
+            <div class="border-t border-gray-200 pt-5">
+              <div class="w-full flex items-center justify-between mb-4"><span
+                  class="text-sm font-bold text-gray-900">Опыт работы
+                  (Объекты)</span>
+                <div class="flex gap-2"><span
+                    class="w-2 h-2 rounded-full bg-mircli-blue shadow-sm"></span><span
+                    class="w-2 h-2 rounded-full bg-gray-300"></span><span
+                    class="w-2 h-2 rounded-full bg-gray-300"></span></div>
+              </div>
+              <div
+                class="flex overflow-x-auto gap-4 pb-3 hide-scroll -mx-5 px-5 snap-x snap-mandatory">
+                <button
+                  class="min-w-[220px] w-[220px] snap-center bg-white rounded-xl overflow-hidden border border-gray-200 flex-shrink-0 text-left hover:border-mircli-blue hover:shadow-lg transition-all">
+                  <div class="h-28 overflow-hidden relative"><img
+                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/db7e7e2baf-b50a3da749d1d05c268f.png"
+                      alt="Office" class="w-full h-full object-cover">
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent">
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <p
+                      class="text-sm font-bold text-gray-900 truncate leading-none mb-1.5">
+                      БЦ "Северная Башня"</p>
+                    <p
+                      class="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                      Монтаж VRF системы, 180+ блоков</p>
+                  </div>
+                </button><button
+                  class="min-w-[220px] w-[220px] snap-center bg-white rounded-xl overflow-hidden border border-gray-200 flex-shrink-0 text-left hover:border-mircli-blue hover:shadow-lg transition-all">
+                  <div class="h-28 overflow-hidden relative"><img
+                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ee59c81b48-076f3f4e17e819a199dc.png"
+                      alt="Mall" class="w-full h-full object-cover">
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent">
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <p
+                      class="text-sm font-bold text-gray-900 truncate leading-none mb-1.5">
+                      ТРЦ "Мега Парк"</p>
+                    <p
+                      class="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                      Установка чиллеров и вентиляции</p>
+                  </div>
+                </button><button
+                  class="min-w-[220px] w-[220px] snap-center bg-white rounded-xl overflow-hidden border border-gray-200 flex-shrink-0 text-left hover:border-mircli-blue hover:shadow-lg transition-all">
+                  <div class="h-28 overflow-hidden relative"><img
+                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a4468c22d2-1780687e9ba82c7d3976.png"
+                      alt="Residential" class="w-full h-full object-cover">
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent">
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <p
+                      class="text-sm font-bold text-gray-900 truncate leading-none mb-1.5">
+                      ЖК "Новые Горизонты"</p>
+                    <p
+                      class="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                      Монтаж сплит-систем в 120 квартирах</p>
+                  </div>
+                </button><button
+                  class="min-w-[220px] w-[220px] snap-center bg-white rounded-xl overflow-hidden border border-gray-200 flex-shrink-0 text-left hover:border-mircli-blue hover:shadow-lg transition-all">
+                  <div class="h-28 overflow-hidden relative"><img
+                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e928cba936-c158db176c54c43ea5e1.png"
+                      alt="Warehouse" class="w-full h-full object-cover">
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent">
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <p
+                      class="text-sm font-bold text-gray-900 truncate leading-none mb-1.5">
+                      ЛЦ "Cargo Hub"</p>
+                    <p
+                      class="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                      Промышленная вентиляция склада</p>
+                  </div>
+                </button></div>
+            </div><!-- Certificates Section -->
+            <div class="border-t border-gray-200 pt-5">
+              <div
+                class="w-full flex items-center justify-between text-left mb-4">
+                <span class="text-sm font-bold text-gray-900">Сертификаты</span>
+              </div>
+              <div class="grid grid-cols-1 gap-3"><a href="#"
+                  class="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-gray-50 to-white hover:from-blue-50 hover:to-white border border-gray-200 group transition-all hover:shadow-md">
+                  <div class="flex items-center gap-3"><button
+                      class="w-12 h-12 rounded-lg bg-white border-2 border-gray-200 flex items-center justify-center flex-shrink-0 overflow-hidden hover:border-mircli-blue transition-colors shadow-sm"><img
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/43c675ccc3-90a0349053c3b2e5a41e.png"
+                        alt="HVAC installation certificate document"
+                        class="w-full h-full object-cover"></button><span
+                      class="text-xs font-semibold text-gray-800">Монтаж
+                      кондиционеров (2019)</span></div><i
+                    class="fa-solid fa-chevron-right text-gray-400 text-sm group-hover:text-mircli-blue transition-colors"></i>
+                </a><a href="#"
+                  class="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-gray-50 to-white hover:from-blue-50 hover:to-white border border-gray-200 group transition-all hover:shadow-md">
+                  <div class="flex items-center gap-3"><button
+                      class="w-12 h-12 rounded-lg bg-white border-2 border-gray-200 flex items-center justify-center flex-shrink-0 overflow-hidden hover:border-mircli-blue transition-colors shadow-sm"><img
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/91bf9c2c17-cd9aeda4226ebbb78eca.png"
+                        alt="electrical safety certificate level 3"
+                        class="w-full h-full object-cover"></button><span
+                      class="text-xs font-semibold text-gray-800">Электробезопасность
+                      3 гр. (2020)</span></div><i
+                    class="fa-solid fa-chevron-right text-gray-400 text-sm group-hover:text-mircli-blue transition-colors"></i>
+                </a></div><button
+                class="w-full text-center text-xs text-mircli-blue font-bold mt-3 hover:underline">Показать
+                еще 2 сертификата</button>
+            </div><!-- Specialization Section -->
+            <div class="border-t border-gray-200 pt-5">
+              <div
+                class="w-full flex items-center justify-between text-left mb-4">
+                <span
+                  class="text-sm font-bold text-gray-900">Специализация</span>
+              </div>
+              <div class="flex flex-wrap gap-2"><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">Сплит-системы</span><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">Мульти-сплит</span><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">VRF
+                  системы</span><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">Чиллеры</span><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">Вентиляция</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- Second Technician -->
+        <div id="second-technician"
+          class="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden technician-card">
+          <button
+            class="w-full p-5 text-left hover:bg-gray-50/50 transition-colors md:pointer-events-none md:hover:bg-white">
+            <div class="flex items-start gap-4">
+              <div class="relative">
+                <div
+                  class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center overflow-hidden border-2 border-blue-200 shadow-md">
+                  <i class="fa-solid fa-user text-blue-400 text-3xl"></i></div>
+                <div
+                  class="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-mircli-green to-green-600 rounded-full border-3 border-white flex items-center justify-center shadow-lg">
+                  <i class="fa-solid fa-check text-white text-xs"></i></div>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3
+                      class="font-bold text-base text-gray-900 mb-1.5 leading-tight">
+                      Козлов Дмитрий Николаевич</h3>
+                    <p
+                      class="text-xs text-mircli-blue font-bold uppercase tracking-wider mb-3 leading-none">
+                      Монтажник</p>
+                    <div class="flex items-center gap-2 flex-wrap"><span
+                        class="text-xs bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 px-3 py-1.5 rounded-lg border border-gray-200 font-semibold shadow-sm">3
+                        года опыта</span><span
+                        class="text-xs bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-1.5 rounded-lg border border-blue-200 font-bold shadow-sm">Мидл</span>
+                    </div>
+                  </div><i id="second-chevron"
+                    class="fa-solid fa-chevron-down text-gray-400 text-base transition-transform duration-300 md:hidden mt-1"></i>
+                </div>
+              </div>
+            </div>
+          </button>
+          <div id="second-expanded" class="px-5 pb-5 space-y-5 hidden md:block">
+            <div class="border-t border-gray-200 pt-5">
+              <div class="w-full flex items-center justify-between mb-4"><span
+                  class="text-sm font-bold text-gray-900">Опыт работы
+                  (Объекты)</span>
+                <div class="flex gap-2"><span data-index="0"
+                    class="w-2 h-2 rounded-full bg-mircli-blue shadow-sm project-dot-second"></span><span
+                    data-index="1"
+                    class="w-2 h-2 rounded-full bg-gray-300 project-dot-second"></span><span
+                    data-index="2"
+                    class="w-2 h-2 rounded-full bg-gray-300 project-dot-second"></span>
+                </div>
+              </div>
+              <div id="second-projects-scroll"
+                class="flex overflow-x-auto gap-4 pb-3 hide-scroll -mx-5 px-5 snap-x snap-mandatory">
+                <button
+                  class="min-w-[220px] w-[220px] snap-center bg-white rounded-xl overflow-hidden border border-gray-200 flex-shrink-0 text-left hover:border-mircli-blue hover:shadow-lg transition-all">
+                  <div class="h-28 overflow-hidden relative"><img
+                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a4468c22d2-1780687e9ba82c7d3976.png"
+                      alt="Residential" class="w-full h-full object-cover">
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent">
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <p
+                      class="text-sm font-bold text-gray-900 truncate leading-none mb-1.5">
+                      ЖК "Лесная Поляна"</p>
+                    <p
+                      class="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                      Установка бытовых кондиционеров</p>
+                  </div>
+                </button><button
+                  class="min-w-[220px] w-[220px] snap-center bg-white rounded-xl overflow-hidden border border-gray-200 flex-shrink-0 text-left hover:border-mircli-blue hover:shadow-lg transition-all">
+                  <div class="h-28 overflow-hidden relative"><img
+                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/db7e7e2baf-b50a3da749d1d05c268f.png"
+                      alt="Office" class="w-full h-full object-cover">
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent">
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <p
+                      class="text-sm font-bold text-gray-900 truncate leading-none mb-1.5">
+                      Офис "Технопарк"</p>
+                    <p
+                      class="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                      Монтаж канальных кондиционеров</p>
+                  </div>
+                </button><button
+                  class="min-w-[220px] w-[220px] snap-center bg-white rounded-xl overflow-hidden border border-gray-200 flex-shrink-0 text-left hover:border-mircli-blue hover:shadow-lg transition-all">
+                  <div class="h-28 overflow-hidden relative"><img
+                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e928cba936-c158db176c54c43ea5e1.png"
+                      alt="Warehouse" class="w-full h-full object-cover">
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent">
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <p
+                      class="text-sm font-bold text-gray-900 truncate leading-none mb-1.5">
+                      Склад "Логистик Центр"</p>
+                    <p
+                      class="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+                      Обслуживание вентсистем</p>
+                  </div>
+                </button></div>
+            </div>
+            <div class="border-t border-gray-200 pt-5">
+              <div
+                class="w-full flex items-center justify-between text-left mb-4">
+                <span class="text-sm font-bold text-gray-900">Сертификаты</span>
+              </div>
+              <div id="second-certificates" class="grid grid-cols-1 gap-3"><a
+                  href="https://mircli.ru/certificates/hvac-2021"
+                  target="_blank"
+                  class="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-gray-50 to-white hover:from-blue-50 hover:to-white border border-gray-200 group transition-all hover:shadow-md">
+                  <div class="flex items-center gap-3"><button
+                      class="w-12 h-12 rounded-lg bg-white border-2 border-gray-200 flex items-center justify-center flex-shrink-0 overflow-hidden hover:border-mircli-blue transition-colors shadow-sm"><img
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/43c675ccc3-90a0349053c3b2e5a41e.png"
+                        alt="HVAC installation certificate"
+                        class="w-full h-full object-cover"></button><span
+                      class="text-xs font-semibold text-gray-800">Монтаж
+                      кондиционеров (2021)</span></div><i
+                    class="fa-solid fa-chevron-right text-gray-400 text-sm group-hover:text-mircli-blue transition-colors"></i>
+                </a><a href="https://mircli.ru/certificates/height-2022"
+                  target="_blank"
+                  class="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-gray-50 to-white hover:from-blue-50 hover:to-white border border-gray-200 group transition-all hover:shadow-md">
+                  <div class="flex items-center gap-3"><button
+                      class="w-12 h-12 rounded-lg bg-white border-2 border-gray-200 flex items-center justify-center flex-shrink-0 overflow-hidden hover:border-mircli-blue transition-colors shadow-sm"><img
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/91bf9c2c17-cd9aeda4226ebbb78eca.png"
+                        alt="electrical safety certificate level 3"
+                        class="w-full h-full object-cover"></button><span
+                      class="text-xs font-semibold text-gray-800">Работа на
+                      высоте (2022)</span></div><i
+                    class="fa-solid fa-chevron-right text-gray-400 text-sm group-hover:text-mircli-blue transition-colors"></i>
+                </a></div>
+            </div>
+            <div class="border-t border-gray-200 pt-5">
+              <div
+                class="w-full flex items-center justify-between text-left mb-4">
+                <span
+                  class="text-sm font-bold text-gray-900">Специализация</span>
+              </div>
+              <div class="flex flex-wrap gap-2"><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">Сплит-системы</span><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">Канальные
+                  кондиционеры</span><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">Вентиляция</span><span
+                  class="text-xs font-semibold bg-gradient-to-r from-blue-50 to-blue-100 text-mircli-blue px-3 py-2 rounded-lg border border-blue-200 shadow-sm">Обслуживание</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- Rating Section -->
+      <div id="rating-section"
+        class="mx-5 mt-6 bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-2xl border-2 border-dashed border-gray-300 p-8 text-center shadow-sm">
+        <div id="rating-form">
+          <h3 class="text-base font-bold text-gray-900 mb-2">Оцените работу
+            бригады</h3>
+          <p class="text-xs text-gray-600 mb-6 font-medium">Ваше мнение помогает
+            нам становиться лучше</p>
+          <div class="flex items-center justify-center gap-3 mb-6"><button
+              class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors focus:outline-none"><i
+                class="fa-solid fa-star"></i></button><button
+              class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors focus:outline-none"><i
+                class="fa-solid fa-star"></i></button><button
+              class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors focus:outline-none"><i
+                class="fa-solid fa-star"></i></button><button
+              class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors focus:outline-none"><i
+                class="fa-solid fa-star"></i></button><button
+              class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors focus:outline-none"><i
+                class="fa-solid fa-star"></i></button></div><button
+            class="w-full bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-300 font-bold py-3 px-6 rounded-xl text-sm transition-all shadow-md hover:shadow-lg">
+            Отправить оценку
+          </button>
+        </div>
+        <div id="rating-success" class="hidden">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <i class="fa-solid fa-check text-3xl text-green-500"></i></div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Спасибо, ваша оценка
+            получена</h3>
+          <p class="text-xs text-gray-600 font-medium">Мы ценим ваше мнение и
+            продолжаем работать над качеством</p>
+        </div>
+      </div><!-- Contact Actions -->
+      <div id="contact-actions"
+        class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t-2 border-gray-200 p-5 shadow-2xl z-40">
+        <div class="max-w-md mx-auto"><button
+            class="w-full bg-gradient-to-r from-mircli-blue to-mircli-blue-dark hover:from-mircli-blue-dark hover:to-mircli-blue text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-xl shadow-blue-900/30 hover:shadow-2xl hover:shadow-blue-900/40 transform hover:scale-[1.02]"><i
+              class="fa-solid fa-phone text-lg"></i><span
+              class="text-base">Связаться с бригадой</span></button></div>
+      </div><!-- Callback Modal -->
+      <div id="callback-modal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] hidden flex items-center justify-center p-5">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative">
+          <button
+            class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"><i
+              class="fa-solid fa-xmark text-gray-600 text-lg"></i></button>
+          <div id="callback-form-content" class="p-8">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-mircli-blue to-mircli-blue-dark rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <i class="fa-solid fa-phone text-white text-2xl"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 text-center mb-2">
+              Обратный звонок</h3>
+            <p class="text-sm text-gray-600 text-center mb-6">Оставьте ваши
+              данные, и мы свяжемся с вами</p>
+            <div class="space-y-4">
+              <div><label
+                  class="block text-sm font-semibold text-gray-700 mb-2">Ваше
+                  имя</label><input type="text" id="callback-name"
+                  placeholder="Иван Иванов"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-mircli-blue focus:outline-none transition-colors text-gray-900">
+              </div>
+              <div><label
+                  class="block text-sm font-semibold text-gray-700 mb-2">Номер
+                  телефона</label><input type="tel" id="callback-phone"
+                  placeholder="+7 (___) ___-__-__"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-mircli-blue focus:outline-none transition-colors text-gray-900">
+              </div><button
+                class="w-full bg-gradient-to-r from-mircli-blue to-mircli-blue-dark hover:from-mircli-blue-dark hover:to-mircli-blue text-white font-bold py-3 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02]">
+                Отправить заявку
+              </button>
+            </div>
+          </div>
+          <div id="callback-success-content" class="p-8 hidden">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <i class="fa-solid fa-check text-3xl text-green-500"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 text-center mb-2">
+              Спасибо, ваша заявка получена</h3>
+            <p class="text-sm text-gray-600 text-center mb-6">Мы свяжемся с вами
+              в ближайшее время</p><button
+              class="w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold py-3 px-6 rounded-xl transition-colors">
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div><!-- Gallery Modal -->
+      <div id="gallery-modal" class="fixed inset-0 bg-black z-[100] hidden">
+        <button
+          class="absolute top-5 right-5 z-10 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-lg"><i
+            class="fa-solid fa-xmark text-2xl"></i></button>
+        <div class="relative w-full h-full flex items-center justify-center">
+          <button
+            class="absolute left-5 z-10 w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-lg"><i
+              class="fa-solid fa-chevron-left text-2xl"></i></button>
+          <div class="w-full h-full flex items-center justify-center p-6"><img
+              id="gallery-image"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"
+              alt=""
+              class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl">
+          </div><button
+            class="absolute right-5 z-10 w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-lg"><i
+              class="fa-solid fa-chevron-right text-2xl"></i></button>
+        </div>
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center gap-3">
+          <span
+            class="w-2.5 h-2.5 rounded-full bg-white/50 gallery-dot transition-all"></span><span
+            class="w-2.5 h-2.5 rounded-full bg-white/50 gallery-dot transition-all"></span><span
+            class="w-2.5 h-2.5 rounded-full bg-white/50 gallery-dot transition-all"></span><span
+            class="w-2.5 h-2.5 rounded-full bg-white/50 gallery-dot transition-all"></span>
+        </div>
+      </div><!-- Certificate Modal -->
+      <div id="certificate-modal" class="fixed inset-0 bg-black z-[100] hidden">
+        <button
+          class="absolute top-5 right-5 z-10 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-lg"><i
+            class="fa-solid fa-xmark text-2xl"></i></button>
+        <div
+          class="relative w-full h-full flex items-center justify-center p-6">
+          <img id="certificate-image"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"
+            alt=""
+            class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl">
+        </div>
+      </div>
+    </div>
+    <script>
+      const galleryImages = [
+        'https://storage.googleapis.com/uxpilot-auth.appspot.com/db7e7e2baf-b50a3da749d1d05c268f.png',
+        'https://storage.googleapis.com/uxpilot-auth.appspot.com/ee59c81b48-076f3f4e17e819a199dc.png',
+        'https://storage.googleapis.com/uxpilot-auth.appspot.com/a4468c22d2-1780687e9ba82c7d3976.png',
+        'https://storage.googleapis.com/uxpilot-auth.appspot.com/e928cba936-c158db176c54c43ea5e1.png'
+      ];
+
+      let currentImageIndex = 0;
+      let selectedRating = 0;
+
+      function openGallery(index)
+      {
+        currentImageIndex = index;
+        const modal = document.getElementById('gallery-modal');
+        const image = document.getElementById('gallery-image');
+        image.src = galleryImages[currentImageIndex];
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        updateGalleryDots();
+      }
+
+      function closeGallery()
+      {
+        const modal = document.getElementById('gallery-modal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      function nextImage()
+      {
+        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+        document.getElementById('gallery-image').src = galleryImages[
+          currentImageIndex];
+        updateGalleryDots();
+      }
+
+      function prevImage()
+      {
+        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) %
+          galleryImages.length;
+        document.getElementById('gallery-image').src = galleryImages[
+          currentImageIndex];
+        updateGalleryDots();
+      }
+
+      function updateGalleryDots()
+      {
+        const dots = document.querySelectorAll('.gallery-dot');
+        dots.forEach((dot, index) =>
+        {
+          if (index === currentImageIndex)
+          {
+            dot.classList.remove('bg-white/50');
+            dot.classList.add('bg-white', 'w-8');
+          }
+          else
+          {
+            dot.classList.remove('bg-white', 'w-8');
+            dot.classList.add('bg-white/50');
+          }
+        });
+      }
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      document.getElementById('gallery-modal').addEventListener('touchstart',
+        e =>
+        {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+
+      document.getElementById('gallery-modal').addEventListener('touchend', e =>
+      {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+
+      function handleSwipe()
+      {
+        if (touchEndX < touchStartX - 50) nextImage();
+        if (touchEndX > touchStartX + 50) prevImage();
+      }
+
+      function openCertificate(imageUrl)
+      {
+        const modal = document.getElementById('certificate-modal');
+        const image = document.getElementById('certificate-image');
+        image.src = imageUrl;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCertificate()
+      {
+        const modal = document.getElementById('certificate-modal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      function toggleTechnician(id)
+      {
+        if (window.innerWidth >= 768) return;
+
+        const expanded = document.getElementById(`${id}-expanded`);
+        const chevron = document.getElementById(`${id}-chevron`);
+
+        if (expanded.classList.contains('hidden'))
+        {
+          expanded.classList.remove('hidden');
+          chevron.classList.remove('fa-chevron-down');
+          chevron.classList.add('fa-chevron-up');
+        }
+        else
+        {
+          expanded.classList.add('hidden');
+          chevron.classList.remove('fa-chevron-up');
+          chevron.classList.add('fa-chevron-down');
+        }
+      }
+
+      function selectRating(rating)
+      {
+        selectedRating = rating;
+        const stars = document.querySelectorAll('.rating-star');
+        stars.forEach((star, index) =>
+        {
+          if (index < rating)
+          {
+            star.classList.add('active');
+            star.querySelector('i').classList.remove('text-gray-300');
+            star.querySelector('i').classList.add('text-yellow-400');
+          }
+          else
+          {
+            star.classList.remove('active');
+            star.querySelector('i').classList.remove('text-yellow-400');
+            star.querySelector('i').classList.add('text-gray-300');
+          }
+        });
+      }
+
+      function submitBrigadeRating()
+      {
+        if (selectedRating === 0) return;
+
+        const form = document.getElementById('rating-form');
+        const success = document.getElementById('rating-success');
+
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+      }
+
+      function openProjectGallery(technicianId, index)
+      {
+        const modal = document.getElementById('gallery-modal');
+        const image = document.getElementById('gallery-image');
+
+        // Map index to actual image URL based on technician
+        const images = {
+          'second': [
+            'https://storage.googleapis.com/uxpilot-auth.appspot.com/a4468c22d2-1780687e9ba82c7d3976.png',
+            'https://storage.googleapis.com/uxpilot-auth.appspot.com/db7e7e2baf-b50a3da749d1d05c268f.png',
+            'https://storage.googleapis.com/uxpilot-auth.appspot.com/e928cba936-c158db176c54c43ea5e1.png'
+          ]
+        };
+
+        const technicianImages = images[technicianId] || [];
+        const imageUrl = technicianImages[index] || galleryImages[0];
+
+        image.src = imageUrl;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        updateGalleryDots();
+      }
+
+      function openCallbackForm()
+      {
+        const modal = document.getElementById('callback-modal');
+        const formContent = document.getElementById('callback-form-content');
+        const successContent = document.getElementById(
+          'callback-success-content');
+
+        formContent.classList.remove('hidden');
+        successContent.classList.add('hidden');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+
+        // Clear form
+        document.getElementById('callback-name').value = '';
+        document.getElementById('callback-phone').value = '';
+      }
+
+      function closeCallbackModal()
+      {
+        const modal = document.getElementById('callback-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      function submitCallback()
+      {
+        const name = document.getElementById('callback-name').value;
+        const phone = document.getElementById('callback-phone').value;
+
+        if (!name || !phone) return;
+
+        const formContent = document.getElementById('callback-form-content');
+        const successContent = document.getElementById(
+          'callback-success-content');
+
+        formContent.classList.add('hidden');
+        successContent.classList.remove('hidden');
+      }
+
+      function openCertificate(imageUrl)
+      {
+        const modal = document.getElementById('certificate-modal');
+        const image = document.getElementById('certificate-image');
+        image.src = imageUrl;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function submitBrigadeRating()
+      {
+        if (selectedRating === 0) return;
+
+        const form = document.getElementById('rating-form');
+        const success = document.getElementById('rating-success');
+
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+      }
+
+      // Update certificate click handlers
+      document.addEventListener('DOMContentLoaded', function()
+      {
+        // Main technician certificates
+        const mainCertButtons = document.querySelectorAll(
+          '#main-technician button[class*="w-12 h-12"]');
+        mainCertButtons.forEach((btn, index) =>
+        {
+          btn.addEventListener('click', function(e)
+          {
+            e.preventDefault();
+            e.stopPropagation();
+            const img = btn.querySelector('img');
+            if (img) openCertificate(img.src);
+          });
+        });
+
+        // Second technician certificates
+        const secondCertButtons = document.querySelectorAll(
+          '#second-technician button[class*="w-12 h-12"]');
+        secondCertButtons.forEach((btn, index) =>
+        {
+          btn.addEventListener('click', function(e)
+          {
+            e.preventDefault();
+            e.stopPropagation();
+            const img = btn.querySelector('img');
+            if (img) openCertificate(img.src);
+          });
+        });
+
+        // Rating stars
+        const stars = document.querySelectorAll('.rating-star');
+        stars.forEach((star, index) =>
+        {
+          star.addEventListener('click', () => selectRating(index + 1));
+        });
+
+        // Submit rating button
+        const submitBtn = document.querySelector(
+          '#rating-section button[class*="w-full bg-white"]');
+        if (submitBtn)
+        {
+          submitBtn.addEventListener('click', submitBrigadeRating);
+        }
+      });
+
+      window.addEventListener('resize', function()
+      {
+        if (window.innerWidth >= 768)
+        {
+          document.getElementById('main-expanded').classList.remove(
+            'hidden');
+          document.getElementById('second-expanded').classList.remove(
+            'hidden');
+        }
+      });
+
+      if (window.innerWidth >= 768)
+      {
+        document.getElementById('main-expanded').classList.remove('hidden');
+        document.getElementById('second-expanded').classList.remove('hidden');
+      }
+    </script>
+  </body>
+
+</html>

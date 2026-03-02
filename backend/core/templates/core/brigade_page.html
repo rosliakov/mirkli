@@ -1,0 +1,368 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Визитка бригады #{{ brigade.brigade_number }} — Миркли</title>
+  <meta name="description" content="Бригада монтажников климатической компании Миркли — профессиональный монтаж кондиционеров и вентиляции.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+</head>
+
+<body class="page">
+
+  <div class="card" id="main-container">
+
+    <!-- ============ COMPANY HEADER ============ -->
+    <header class="company-header" id="mircli-header">
+      <div class="company-header__top">
+        <div class="company-header__brand">
+          <div class="company-header__logo-wrap">
+            <img
+              src="{% static 'core/assets/images/logo-mircli.png' %}"
+              alt="Логотип Миркли"
+              class="company-header__logo">
+          </div>
+          <span class="company-header__tagline">Климатическая<br>компания</span>
+        </div>
+        <div class="company-header__phone-wrap">
+          <a href="tel:88007752219" class="company-header__phone" aria-label="Позвонить в компанию Миркли">
+            8 800 775-22-19
+          </a>
+        </div>
+      </div>
+      <div class="company-header__bottom">
+        <a href="mailto:info@mircli.ru" class="company-header__email" aria-label="Написать на email info@mircli.ru">
+          <i class="fa-regular fa-envelope company-header__email-icon" aria-hidden="true"></i>
+          <span>info@mircli.ru</span>
+        </a>
+        <button class="company-header__callback-btn" id="open-callback-btn" aria-label="Заказать обратный звонок">
+          Обратный звонок
+        </button>
+      </div>
+    </header>
+
+    <!-- ============ BRIGADE HEADER ============ -->
+    <div class="brigade-header" id="header">
+      <div class="brigade-header__inner">
+        <div class="brigade-header__icon-wrap" aria-hidden="true">
+          <i class="fa-solid fa-tools brigade-header__icon"></i>
+        </div>
+        <div class="brigade-header__info">
+          <h1 class="brigade-header__title">Бригада #{{ brigade.brigade_number }}</h1>
+          <div class="brigade-header__rating" aria-label="Рейтинг бригады: {{ brigade.rating }} из 5, {{ brigade.reviews_count }} отзывов">
+            <div class="brigade-header__stars" aria-hidden="true">
+              {% with rating_int=brigade.rating|floatformat:"0" %}
+              {% for i in "12345" %}
+                <i class="fa-solid fa-star{% if forloop.counter > rating_int|add:"0" %} brigade-header__star--empty{% endif %}"></i>
+              {% endfor %}
+              {% endwith %}
+            </div>
+            <span class="brigade-header__score">{{ brigade.rating }}</span>
+            <span class="brigade-header__reviews">({{ brigade.reviews_count }} отзывов)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ VEHICLE CARD ============ -->
+    {% if brigade.car %}
+    <section class="vehicle-card" id="vehicle-card" aria-label="Автомобиль бригады">
+      <div class="vehicle-card__image-wrap">
+        {% if brigade.car.image %}
+        <img
+          src="{{ brigade.car.image.url }}"
+          alt="{{ brigade.car.name }}"
+          class="vehicle-card__image">
+        {% else %}
+        <div class="vehicle-card__image vehicle-card__image--placeholder"></div>
+        {% endif %}
+        <div class="vehicle-card__overlay" aria-hidden="true"></div>
+        <div class="vehicle-card__caption">
+          <h3 class="vehicle-card__name">{{ brigade.car.name }}</h3>
+          <p class="vehicle-card__desc">{{ brigade.car.comment }}</p>
+        </div>
+        <div class="vehicle-card__plate">
+          {% if brigade.car.country_flag %}
+          <img
+            src="{{ brigade.car.country_flag.url }}"
+            alt="Флаг страны"
+            class="vehicle-card__flag">
+          {% endif %}
+          <span class="vehicle-card__plate-num">{{ brigade.car.number }}</span>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- ============ TECHNICIANS GRID ============ -->
+    <section class="technicians" aria-label="Сотрудники бригады">
+      <div class="technicians__grid">
+
+        {% for installer in installers %}
+        {% if forloop.first %}
+        <article class="technician-card technician-card--main" id="technician-{{ installer.id }}" aria-label="{{ installer }}">
+          <button
+            class="technician-card__header"
+            id="toggle-{{ installer.id }}"
+            aria-expanded="true"
+            aria-controls="expanded-{{ installer.id }}"
+            onclick="toggleTechnician('{{ installer.id }}')">
+        {% else %}
+        <article class="technician-card technician-card--second" id="technician-{{ installer.id }}" aria-label="{{ installer }}">
+          <button
+            class="technician-card__header"
+            id="toggle-{{ installer.id }}"
+            aria-expanded="false"
+            aria-controls="expanded-{{ installer.id }}"
+            onclick="toggleTechnician('{{ installer.id }}')">
+        {% endif %}
+
+            <div class="technician-card__avatar-wrap">
+              <div class="technician-card__avatar" aria-hidden="true">
+                {% if installer.photo %}
+                <img src="{{ installer.photo.url }}" alt="{{ installer }}" class="technician-card__avatar-img" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+                {% else %}
+                <i class="fa-solid fa-user technician-card__avatar-icon"></i>
+                {% endif %}
+              </div>
+              <div class="technician-card__verified" aria-label="Верифицирован" title="Верифицирован">
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="technician-card__meta">
+              <div class="technician-card__meta-top">
+                <div>
+                  <h3 class="technician-card__name">{{ installer }}</h3>
+                  {% if installer.position %}<p class="technician-card__role">{{ installer.position }}</p>{% endif %}
+                  <div class="technician-card__tags">
+                    <span class="tag tag--gray">{{ installer.experience_years }} {% if installer.experience_years == 1 %}год{% elif installer.experience_years < 5 %}года{% else %}лет{% endif %} опыта</span>
+                    {% if installer.skill %}<span class="tag tag--blue">{{ installer.skill }}</span>{% endif %}
+                  </div>
+                </div>
+                <i class="fa-solid {% if forloop.first %}fa-chevron-up{% else %}fa-chevron-down{% endif %} technician-card__chevron" id="chevron-{{ installer.id }}" aria-hidden="true"></i>
+              </div>
+            </div>
+          </button>
+
+          <div class="technician-card__body{% if not forloop.first %} technician-card__body--hidden{% endif %}" id="expanded-{{ installer.id }}">
+
+            <!-- Projects carousel -->
+            {% with projects=installer.projects.all %}
+            {% if projects %}
+            <div class="projects-section">
+              <div class="projects-section__header">
+                <span class="projects-section__title">Опыт работы (Объекты)</span>
+                {% if projects|length > 1 %}
+                <div class="carousel-dots" id="dots-{{ installer.id }}" aria-hidden="true">
+                  {% for project in projects %}
+                  <span class="carousel-dots__dot {% if forloop.first %}carousel-dots__dot--active{% endif %}" data-index="{{ forloop.counter0 }}"></span>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+              <div class="projects-carousel hide-scroll" id="projects-scroll-{{ installer.id }}" role="list" aria-label="Объекты монтажника">
+                {% for project in projects %}
+                {% with gallery_photos=project.photos.all %}
+                <button class="project-card"
+                  role="listitem"
+                  aria-label="Открыть объект: {{ project.name }}"
+                  onclick="openProjectGallery([{% for ph in gallery_photos %}'{{ ph.image.url }}'{% if not forloop.last %},{% endif %}{% endfor %}{% if not gallery_photos and project.image %}'{{ project.image.url }}'{% endif %}], 0)">
+                  <div class="project-card__img-wrap">
+                    {% if project.image %}
+                    <img src="{{ project.image.url }}" alt="{{ project.name }}" class="project-card__img">
+                    {% elif gallery_photos %}
+                    <img src="{{ gallery_photos.0.image.url }}" alt="{{ project.name }}" class="project-card__img">
+                    {% else %}
+                    <div class="project-card__img project-card__img--placeholder"></div>
+                    {% endif %}
+                    <div class="project-card__img-overlay" aria-hidden="true"></div>
+                  </div>
+                  <div class="project-card__info">
+                    <p class="project-card__name">{{ project.name }}</p>
+                    {% if project.description %}<p class="project-card__desc">{{ project.description }}</p>{% endif %}
+                  </div>
+                </button>
+                {% endwith %}
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            <!-- Certificates -->
+            {% with certs=installer.certificates.all %}
+            {% if certs %}
+            <div class="certs-section">
+              <div class="certs-section__header">
+                <span class="certs-section__title">Сертификаты</span>
+              </div>
+              <ul class="certs-list" aria-label="Сертификаты {{ installer }}">
+                {% for cert in certs %}
+                <li class="certs-list__item{% if forloop.counter > 2 %} certs-list__item--hidden{% endif %}">
+                  <button
+                    class="cert-item"
+                    onclick="openCertificate('{{ cert.photo.url }}')"
+                    aria-label="Открыть сертификат: {{ cert.caption }}">
+                    <div class="cert-item__inner">
+                      <div class="cert-item__thumb-wrap">
+                        <img src="{{ cert.photo.url }}" alt="{{ cert.caption }}" class="cert-item__thumb">
+                      </div>
+                      <span class="cert-item__label">{{ cert.caption }}</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right cert-item__arrow" aria-hidden="true"></i>
+                  </button>
+                </li>
+                {% endfor %}
+              </ul>
+              {% if certs|length > 2 %}
+              <button class="certs-section__show-more"
+                aria-expanded="false"
+                data-show-text="Показать ещё {{ certs|length|add:"-2" }} сертификата">Показать ещё {{ certs|length|add:"-2" }} сертификата</button>
+              {% endif %}
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            <!-- Specialization -->
+            {% with specs=installer.specializations.all %}
+            {% if specs %}
+            <div class="spec-section">
+              <div class="spec-section__header">
+                <span class="spec-section__title">Специализация</span>
+              </div>
+              <ul class="spec-list" aria-label="Специализация {{ installer }}">
+                {% for spec in specs %}
+                <li><span class="tag tag--blue-outline">{{ spec.name }}</span></li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+          </div><!-- /expanded -->
+        </article>
+        {% endfor %}
+
+      </div>
+    </section>
+
+    <!-- ============ RATING SECTION ============ -->
+    <section class="rating-section" id="rating-section" aria-label="Оценка бригады">
+      <div id="rating-form">
+        <h3 class="rating-section__title">Оцените работу бригады</h3>
+        <p class="rating-section__subtitle">Ваше мнение помогает нам становиться лучше</p>
+        <div class="rating-section__stars" role="group" aria-label="Выберите оценку от 1 до 5 звёзд">
+          <button class="rating-star" data-value="1" aria-label="1 звезда">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </button>
+          <button class="rating-star" data-value="2" aria-label="2 звезды">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </button>
+          <button class="rating-star" data-value="3" aria-label="3 звезды">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </button>
+          <button class="rating-star" data-value="4" aria-label="4 звезды">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </button>
+          <button class="rating-star" data-value="5" aria-label="5 звёзд">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </button>
+        </div>
+        <button class="rating-section__submit" id="submit-rating" aria-label="Отправить оценку бригады">
+          Отправить оценку
+        </button>
+      </div>
+
+      <div id="rating-success" class="rating-section__success hidden" role="alert" aria-live="polite">
+        <div class="rating-section__success-icon" aria-hidden="true">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 class="rating-section__success-title">Спасибо, ваша оценка получена</h3>
+        <p class="rating-section__success-text">Мы ценим ваше мнение и продолжаем работать над качеством</p>
+      </div>
+    </section>
+
+  </div><!-- /card -->
+
+  <!-- ============ FIXED CONTACT BAR ============ -->
+  <div class="contact-bar" id="contact-actions">
+    <div class="contact-bar__inner">
+      <button class="contact-bar__btn" id="contact-brigade-btn" aria-label="Связаться с бригадой по телефону">
+        <i class="fa-solid fa-phone contact-bar__btn-icon" aria-hidden="true"></i>
+        <span>Связаться с бригадой</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ CALLBACK MODAL ============ -->
+  <div class="modal" id="callback-modal" role="dialog" aria-modal="true" aria-labelledby="callback-title" hidden>
+    <div class="modal__backdrop" id="callback-backdrop"></div>
+    <div class="modal__content">
+      <button class="modal__close" id="close-callback-btn" aria-label="Закрыть форму обратного звонка">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div id="callback-form-content" class="modal__body">
+        <div class="modal__icon modal__icon--blue" aria-hidden="true">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <h3 class="modal__title" id="callback-title">Обратный звонок</h3>
+        <p class="modal__subtitle">Оставьте ваши данные, и мы свяжемся с вами</p>
+        <form class="callback-form" id="callback-form" novalidate>
+          <div class="form-field">
+            <label class="form-field__label" for="callback-name">Ваше имя</label>
+            <input type="text" id="callback-name" name="name" class="form-field__input" placeholder="Иван Иванов" autocomplete="name" required aria-required="true">
+          </div>
+          <div class="form-field">
+            <label class="form-field__label" for="callback-phone">Номер телефона</label>
+            <input type="tel" id="callback-phone" name="phone" class="form-field__input" placeholder="+7 (___) ___-__-__" autocomplete="tel" required aria-required="true">
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+        </form>
+      </div>
+      <div id="callback-success-content" class="modal__body hidden" role="alert" aria-live="polite">
+        <div class="modal__icon modal__icon--green" aria-hidden="true">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 class="modal__title">Спасибо, ваша заявка получена</h3>
+        <p class="modal__subtitle">Мы свяжемся с вами в ближайшее время</p>
+        <button class="btn btn--secondary btn--full" id="close-success-btn">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ GALLERY MODAL ============ -->
+  <div class="gallery-modal" id="gallery-modal" role="dialog" aria-modal="true" aria-label="Галерея объектов" hidden>
+    <button class="gallery-modal__close" id="close-gallery-btn" aria-label="Закрыть галерею">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <button class="gallery-modal__nav gallery-modal__nav--prev" id="gallery-prev" aria-label="Предыдущее изображение">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <div class="gallery-modal__viewer">
+      <img id="gallery-image" src="" alt="" class="gallery-modal__img">
+    </div>
+    <button class="gallery-modal__nav gallery-modal__nav--next" id="gallery-next" aria-label="Следующее изображение">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+    <div class="gallery-modal__dots" id="gallery-dots" aria-hidden="true"></div>
+  </div>
+
+  <!-- ============ CERTIFICATE MODAL ============ -->
+  <div class="cert-modal" id="certificate-modal" role="dialog" aria-modal="true" aria-label="Просмотр сертификата" hidden>
+    <button class="cert-modal__close" id="close-cert-btn" aria-label="Закрыть просмотр сертификата">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <div class="cert-modal__viewer">
+      <img id="certificate-image" src="" alt="Сертификат" class="cert-modal__img">
+    </div>
+  </div>
+
+  <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>
