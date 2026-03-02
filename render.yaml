@@ -11,5 +11,7 @@ services:
         value: "False"
       - key: SECRET_KEY
         generateValue: true
+      - key: ALLOWED_HOSTS
+        value: "mirkli.onrender.com"
       - key: PYTHON_VERSION
         value: "3.12.0"
